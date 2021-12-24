@@ -1,0 +1,63 @@
+.container {
+  width: 50%;
+  padding: 0;
+  margin: 0 auto;
+  padding: 2% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logoContainer {
+    h1 {
+      cursor: pointer;
+      font-family: "Comfortaa", cursive;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: var(--primaryRed);
+    }
+  }
+
+  .linkContainer {
+    display: flex;
+    gap: 4em;
+    align-items: center;
+
+    img {
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    a {
+      font-size: 1.1em;
+      font-family: "Spartan", sans-serif;
+      font-weight: 500;
+      transition: 0.2s all ease;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--primaryBlue);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    justify-content: space-evenly;
+    gap: 4em;
+    align-items: baseline;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .container {
+    width: 90%;
+    padding: 1em 0;
+  }
+}

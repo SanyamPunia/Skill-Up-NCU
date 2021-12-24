@@ -1,0 +1,99 @@
+.container {
+  width: 50%;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  .heading {
+    h1 {
+      font-size: 3.5em;
+      font-family: "Spartan", sans-serif;
+      font-weight: 800;
+      color: var(--primaryBlack);
+
+      span {
+        color: var(--primaryRed);
+      }
+    }
+  }
+
+  .context {
+    margin-top: 1.5em;
+
+    p {
+      font-family: "Poppins", sans-serif;
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+
+    a {
+      cursor: pointer;
+      padding: 0.9em;
+      background-color: white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1em;
+      font-family: "Poppins";
+      color: var(--primaryBlack);
+      font-size: 1.1em;
+      transition: 0.2s all ease;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      img {
+        width: 30px;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
+        color: var(--primaryBlue);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    // align-items: flex-start;
+
+    .heading {
+      h1 {
+        font-size: 3em;
+      }
+      .context {
+        padding: 5em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    .heading {
+      h1 {
+        font-size: 2.4em;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,100 @@
+.topContainer {
+  background-color: var(--primaryBlack);
+  padding: 5em;
+
+  * {
+    color: #fff;
+  }
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .leftSubContainer {
+      a {
+        font-size: 2em;
+        font-weight: 800;
+        font-family: "Spartan", sans-serif;
+        color: var(--primaryRed);
+      }
+
+      p {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .icons {
+        margin-top: 1em;
+        display: flex;
+        gap: 1em;
+        cursor: pointer;
+
+        * {
+            transition: 0.2s all ease;
+        }
+
+         *:hover {
+             color: var(--primaryBlue);
+         }
+        }
+      }
+    }
+
+    .rightSubContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      a {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.1em;
+        transition: 0.2s all ease;
+
+        &:hover {
+          color: var(--primaryBlue);
+        }
+      }
+    }
+  }
+
+@media screen and (max-width: 1220px) {
+  .topContainer {
+
+    .container {
+      width: 70%;
+    }
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+  .topContainer {
+    .container {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .topContainer {
+    padding: 2em;
+    .container {
+      display: grid;
+      gap: 3em;
+      justify-content: center;
+      text-align: center;
+
+      .leftSubContainer {
+        .icons {
+          justify-content: center;
+        }
+      }
+
+      .rightSubContainer {
+        gap: 0.7em;
+      }
+    }
+  }
+  
+}
