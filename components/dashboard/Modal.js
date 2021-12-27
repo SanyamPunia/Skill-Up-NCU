@@ -7,6 +7,9 @@ import { db, storage } from "../../firebase";
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
+import styles from "../../styles/dashboard/Modal.module.scss"
+import UseAnimations from 'react-useanimations';
+import loading2 from 'react-useanimations/lib/loading2'
 
 function Modal() {
     const { data: session } = useSession();
@@ -19,7 +22,7 @@ function Modal() {
     const captionRef = useRef(null);
 
     const uploadPost = async (e) => {
-        if(loading) return;
+        if (loading) return;
 
         setLoading(true);
 
@@ -27,7 +30,7 @@ function Modal() {
         // 2) get the post ID for the newly created post
         // 3) upload the image to firebase storage with the post ID
         // 4) get a download URL from firestore and upload update the original post with image
-        
+
         const docRef = await addDoc(collection(db, "posts"), {
             username: session.user.username,
             caption: captionRef.current.value,
@@ -102,27 +105,43 @@ function Modal() {
                     >
                         <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all
                         sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
-                            <div>
+                            <div className={styles.container}>
                                 {selectedFile
                                     ?
                                     <img src={selectedFile} onClick={() => setSelectedFile(null)} />
                                     : (
                                         <Fragment>
-                                            <FaCamera onClick={() => {
-                                                filePickerRef.current.click()
-                                            }} />
+                                            <div className={styles.iconContainer}>
+                                                <div className={styles.icon}>
+                                                    <FaCamera onClick={() => {
+                                                        filePickerRef.current.click()
+                                                    }} />
+                                                </div>
+                                                <p>Click to add an image</p>
+                                            </div>
                                             <input type="file" hidden ref={filePickerRef} onChange={addImageToPost} />
                                         </Fragment>
                                     )}
-                                
-                                <input type="text" ref={captionRef} placeholder="Please enter a caption" />
-                                <button disabled={!selectedFile} type="button" onClick={uploadPost}>
-                                    {loading ? "Uploading..." : "Upload Post"}
-                                </button>
+
+                                <div className={styles.uploadContainer}>
+                                    <input type="text" ref={captionRef} placeholder="Please enter a caption" />
+                                    <button disabled={!selectedFile} type="button" onClick={uploadPost}>
+                                        {loading
+                                            ?
+                                            <Fragment>
+                                                Uploading...
+                                                <div className={styles.animatedIcon}><UseAnimations animation={loading2} fillColor="#8099FC" /></div>
+                                            </Fragment>
+                                            :
+                                            <Fragment>
+                                                Upload Post
+                                            </Fragment>
+                                        }
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </Transition.Child>
-
                 </div>
             </Dialog>
         </Transition.Root>

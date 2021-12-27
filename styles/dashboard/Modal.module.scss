@@ -1,0 +1,78 @@
+.container {
+  ::placeholder {
+    font-size: 0.8em;
+    font-family: "Poppins";
+  }
+  margin: 1em;
+
+  img {
+    border-radius: 15px;
+  }
+
+  .iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+
+    .icon {
+      color: var(--primaryRed);
+      font-size: 2.3em;
+      cursor: pointer;
+      transition: 0.2s all ease;
+
+      &:hover {
+        color: var(--primaryBlue);
+      }
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      color: rgb(156, 156, 156);
+      font-size: 1.1em;
+    }
+  }
+
+  .uploadContainer {
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    input {
+      border: 0;
+      outline: none;
+      border-bottom: 2px solid var(--primaryBlack);
+      width: 100%;
+      padding: 0.4em 0;
+      transition: 0.2s all ease;
+      font-family: "Poppins";
+      font-size: 1.3em;
+
+      &:focus {
+        border-bottom: 2px solid var(--primaryBlue);
+      }
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      gap: 1.3em;
+      align-items: center;
+
+      cursor: pointer;
+      padding: 0.7em;
+      background-color: #fff;
+      border-radius: 5px;
+      font-family: "Poppins";
+      color: var(--primaryBlue);
+      font-size: 1.1em;
+      transition: 0.2s all ease;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      &:hover {
+        box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
+      }
+    }
+  }
+}

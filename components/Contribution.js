@@ -9,7 +9,7 @@ function Contribution() {
             <p>mollit anim id est laborum.</p>
             <div className={styles.buttonContainer}>
                 <a>
-                    <img src="/github-white.png" alt="" />
+                    <img src="/bitbucket.png" alt="" />
                     Contribute
                 </a>
             </div>

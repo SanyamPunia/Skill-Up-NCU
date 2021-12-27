@@ -30,8 +30,8 @@ function Header() {
                         {session
                             ?
                             <Fragment>
-                                <Link href="/dashboard"><img src={session?.user?.image} alt="" /></Link>
                                 <a onClick={signOut}>Sign Out</a>
+                                <Link href="/dashboard"><img src={session?.user?.image} alt="" /></Link>
                             </Fragment>
                             :
                             <Fragment>

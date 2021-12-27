@@ -1,7 +1,12 @@
 import styles from "../styles/Landing.module.scss"
 import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
+import { Fragment } from "react/cjs/react.development"
 
 function Landing() {
+
+    const { data: session } = useSession()
+
     return (
         <div>
             <div className={styles.container}>
@@ -21,10 +26,20 @@ function Landing() {
                     </p>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <a onClick={signIn}>
-                        <img src="/google-logo.png" alt="" />
-                        Sign In With Google
-                    </a>
+                    {session ?
+                        <Fragment>
+                            <a href="/dashboard">
+                                Go to your Dashboard
+                            </a>
+
+                        </Fragment>
+                        : <Fragment>
+                            <a onClick={signIn}>
+                                <img src="/google-logo.png" alt="" />
+                                Sign In With Google
+                            </a>
+                        </Fragment>
+                    }
                 </div>
             </div>
         </div>

@@ -1,0 +1,112 @@
+.container {
+  ::placeholder {
+    color: rgb(184, 184, 184);
+    font-size: 0.8em;
+    font-family: "Poppins";
+  }
+
+  width: 50%;
+  margin: 2em auto;
+  padding: 2% 5%;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border-radius: 30px;
+
+  h1 {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primaryBlue);
+  }
+
+  .questionContainer {
+    margin-top: 3em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .subSection {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+
+
+      img {
+          cursor: pointer;
+          width: 25em;
+          border-radius: 15px;
+      }
+
+      label {
+        font-family: "Poppins";
+        font-weight: 700;
+        font-size: 2em;
+        color: var(--primaryBlack);
+
+        span {
+            font-weight: normal;
+            font-size: 0.5em;
+        }
+      }
+
+      input {
+        overflow-x: scroll;
+        width: 100%;
+        padding: 0.4em 0.4em;
+        transition: 0.2s all ease;
+        font-family: "Poppins";
+        font-size: 1.2em;
+        color: var(--primaryBlue);
+      }
+
+      textarea {
+        font-size: 1.3em;
+        color: var(--primaryBlue);
+      }
+
+      .icon {
+        width: fit-content;
+        color: var(--primaryRed);
+        font-size: 2em;
+        cursor: pointer;
+        transition: 0.2s all ease;
+
+        &:hover {
+          color: var(--primaryBlue);
+        }
+      }
+    }
+
+    .subSection:nth-child(3) {
+      gap: 1.8em;
+    }
+
+    .subSection:nth-child(5) {
+        gap: 1em;
+    }
+
+    button {
+      width: fit-content;
+      cursor: pointer;
+      padding: 0.9em 1.5em;
+      background-color: white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1em;
+      font-family: "Poppins";
+      color: var(--primaryBlack);
+      font-size: 1.1em;
+      transition: 0.2s all ease;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
+        color: var(--primaryBlue);
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import Modal from "../components/dashboard/Modal"
 import Landing from "../components/dashboard/Landing"
 import Header from "../components/Header"
 import Posts from "../components/dashboard/Posts"
+import Head from "next/head"
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
@@ -24,6 +25,11 @@ export async function getServerSideProps(context) {
 function dashboard() {
   return (
     <>
+      <Head>
+        <title>Skill Up | Dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Header />
       <Landing />
       <Modal />
