@@ -2,6 +2,7 @@ import styles from "../styles/Landing.module.scss"
 import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
 import { Fragment } from "react/cjs/react.development"
+import Link from "next/link"
 
 function Landing() {
 
@@ -28,10 +29,7 @@ function Landing() {
                 <div className={styles.buttonContainer}>
                     {session ?
                         <Fragment>
-                            <a href="/dashboard">
-                                Go to your Dashboard
-                            </a>
-
+                            <Link href="/dashboard"><a>Go to your Dashboard</a></Link>
                         </Fragment>
                         : <Fragment>
                             <a onClick={signIn}>
