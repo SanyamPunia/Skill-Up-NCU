@@ -10,6 +10,22 @@
   --primaryBlue: #8099FC;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--primaryBlack); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(17, 17, 17); 
+}
+
 html,
 body {
   /* width: 70%;

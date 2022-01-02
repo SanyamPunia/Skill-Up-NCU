@@ -11,6 +11,7 @@ import UseAnimations from "react-useanimations"
 import loading2 from "react-useanimations/lib/loading2"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import toast, { Toaster } from "react-hot-toast"
+import { useRouter } from 'next/router'
 
 export async function getServerSideProps(context) {
     const session = await getSession(context)
@@ -30,7 +31,9 @@ export async function getServerSideProps(context) {
 }
 
 
-function edit() {
+function Edit() {
+    const router = useRouter()
+
     const { data: session } = useSession();
 
     const [selectedFile, setSelectedFile] = useState(null);
@@ -83,6 +86,9 @@ function edit() {
 
             // toast message after successfully sending form data to firestore
             toast.success('Question Posted Successfully!');
+
+            // redirect to custom post page on onClick button (nested slug routes)
+            router.push(`/${session.user.username}/${titleRef.current.value}`)
         }
         
             // set state to default state
@@ -191,4 +197,4 @@ function edit() {
     )
 }
 
-export default edit
+export default Edit
