@@ -36,6 +36,4 @@ function Dashboard() {
       <Posts />
     </>
   )
-
 }
-export default Dashboard
