@@ -13,24 +13,6 @@ import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from 'next/router'
 
-export async function getServerSideProps(context) {
-    const session = await getSession(context)
-
-    if (!session) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            },
-        }
-    }
-
-    return {
-        props: { session }
-    }
-}
-
-
 function Edit() {
     const router = useRouter()
 
@@ -198,3 +180,20 @@ function Edit() {
 }
 
 export default Edit
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context)
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: { session }
+    }
+}
