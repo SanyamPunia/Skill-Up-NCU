@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-function dashboard() {
+function Dashboard() {
   return (
     <>
       <Head>
@@ -38,4 +38,4 @@ function dashboard() {
   )
 
 }
-export default dashboard
+export default Dashboard
