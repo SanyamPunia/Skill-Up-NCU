@@ -16,6 +16,7 @@ function Posts() {
         ), [db]
     )
 
+
     return (
         <div>
             {posts.map((post) => (
@@ -23,9 +24,15 @@ function Posts() {
                     key={post.id}
                     id={post.id}
                     username={post.data().username}
+                    title={post.data().title}
+                    subject={post.data().subject}
+                    currentYear={post.data().currentYear}
+                    // description={post.data().description}
+                    markdownDescription={post.data().markdownDescription}
                     userImg={post.data().profileImg}
                     img={post.data().image}
-                    caption={post.data().caption}
+                    createdAtTime={post.data().timestamp.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    createdAtDate={post.data().timestamp.toDate().toDateString()}
                 />
             ))}
         </div>

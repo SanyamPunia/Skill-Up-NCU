@@ -8,7 +8,7 @@ function Landing() {
     const { data: session } = useSession()
     const [open, setOpen] = useRecoilState(modalState);
 
-    console.log(session)
+    // console.log(session)
 
     return (
         <div className={styles.container}>

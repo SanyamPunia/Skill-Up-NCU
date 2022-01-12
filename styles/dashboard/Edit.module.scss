@@ -5,7 +5,7 @@
     font-family: "Poppins";
   }
 
-  width: 50%;
+  width: 60%;
   margin: 2em auto;
   padding: 2% 5%;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
@@ -31,11 +31,10 @@
       flex-direction: column;
       gap: 2em;
 
-
       img {
-          cursor: pointer;
-          width: 25em;
-          border-radius: 15px;
+        cursor: pointer;
+        width: 25em;
+        border-radius: 15px;
       }
 
       label {
@@ -45,8 +44,8 @@
         color: var(--primaryBlack);
 
         span {
-            font-weight: normal;
-            font-size: 0.5em;
+          font-weight: normal;
+          font-size: 0.5em;
         }
       }
 
@@ -61,7 +60,7 @@
       }
 
       textarea {
-        font-size: 1.3em;
+        // font-size: 1.3em;
         color: var(--primaryBlue);
       }
 
@@ -83,10 +82,10 @@
     }
 
     .subSection:nth-child(5) {
-        gap: 1em;
+      gap: 1em;
     }
 
-    button {
+    .formButton {
       width: fit-content;
       cursor: pointer;
       padding: 0.9em 1.5em;
@@ -107,6 +106,28 @@
         box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
         color: var(--primaryBlue);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+
+    .formButton {
+      margin-bottom: 2em;
     }
   }
 }

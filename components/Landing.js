@@ -13,7 +13,7 @@ function Landing() {
             <div className={styles.container}>
                 <div className={styles.heading}>
                     <h1>Learn It <span>Better</span></h1>
-                    <h1>From Your Seniors.</h1>
+                    <h1>From Your Peers.</h1>
                 </div>
                 <div className={styles.context}>
                     <p>

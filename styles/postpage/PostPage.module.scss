@@ -1,0 +1,244 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+
+  .userInfoContainer {
+    margin-bottom: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .userProfileImage {
+    border-radius: 50%;
+    width: 50px;
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    .userInfoContent {
+      p {
+        font-size: 1.5em;
+        font-weight: 500;
+        color: var(--primaryBlack);
+      }
+
+      p:nth-child(2) {
+        font-size: 1em;
+        color: rgb(141, 141, 141);
+      }
+    }
+  }
+
+  .postDate {
+    p {
+      font-weight: 700;
+      color: rgb(141, 141, 141);
+    }
+  }
+
+  .postContentContainer {
+    display: flex;
+    gap: 5em;
+
+    .postMediaContainer {
+      img {
+        max-width: 30em;
+        border-radius: 10px;
+      }
+
+      .likeIconContainer {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        cursor: pointer;
+        margin-top: 1em;
+        color: var(--primaryRed);
+        font-size: 1.6em;
+
+        span {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    .postContentSubContainer {
+      h1 {
+        font-size: 2.3em;
+        font-weight: 700;
+        color: var(--primaryRed);
+      }
+
+      .subject {
+        font-size: 1.2em;
+        font-weight: 500;
+        color: rgb(80, 80, 80);
+      }
+
+      hr {
+        margin: 1.2em 0;
+      }
+
+      .markDownContainer {
+        * {
+          color: var(--primaryBlack);
+        }
+      }
+    }
+  }
+
+  .commentSection {
+    hr {
+      margin: 3em 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-style: "Poppins";
+      font-weight: 700;
+      color: var(--primaryBlue);
+      margin-bottom: 1em;
+    }
+
+    form {
+      .editorContainer {
+        margin-top: 2em;
+      }
+
+      .subSection {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        margin-bottom: 2em;
+
+        label {
+          font-family: "Poppins";
+          font-weight: 700;
+          font-size: 2em;
+          color: var(--primaryBlack);
+
+          span {
+            font-weight: normal;
+            font-size: 0.5em;
+          }
+        }
+
+        img {
+          cursor: pointer;
+          width: 25em;
+          border-radius: 15px;
+        }
+
+        .icon {
+          width: fit-content;
+          color: var(--primaryRed);
+          font-size: 2em;
+          cursor: pointer;
+          transition: 0.2s all ease;
+
+          &:hover {
+            color: var(--primaryBlue);
+          }
+        }
+      }
+    }
+    .formButton {
+      width: fit-content;
+      cursor: pointer;
+      padding: 0.9em 1.5em;
+      background-color: white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1em;
+      font-family: "Poppins";
+      color: var(--primaryBlack);
+      font-size: 1.1em;
+      transition: 0.2s all ease;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
+        color: var(--primaryBlue);
+      }
+    }
+
+    .commentContainer {
+      padding: 2% 5%;
+      box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+        rgba(17, 17, 26, 0.05) 0px 8px 32px;
+      border-radius: 10px;
+      margin-bottom: 2em;
+      margin-top: 2em;
+
+      .comments {
+        display: flex;
+        align-items: center;
+
+        .commentUserInfoContainer {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .commentUserInfo {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+          }
+
+          img {
+            width: 40px;
+            border-radius: 50%;
+          }
+          p {
+            font-family: "Poppins";
+            font-weight: 500;
+            color: var(--primaryBlack);
+          }
+        }
+      }
+      .commentMarkdownContainer {
+        margin-bottom: 2em;
+      }
+
+      .imageAttachment {
+        img {
+          max-width: 30em;
+          border-radius: 10px;
+        }
+      }
+
+      .commentContainerLine {
+        margin: 2em auto;
+        width: 5%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 80%;
+    
+    .postContentContainer {
+      display: grid;
+    }
+  }
+}

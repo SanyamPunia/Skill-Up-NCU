@@ -8,7 +8,7 @@ function Header() {
     const { data: session } = useSession();
 
     return (
-        <div className="sticky top-0 bg-white shadow-sm">
+        <div className="sticky top-0 bg-white shadow-sm z-10">
             <div className={styles.container}>
                 <div className={styles.logoContainer}>
                     {session

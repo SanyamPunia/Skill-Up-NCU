@@ -5,7 +5,7 @@ import Image from "next/image"
 function Features() {
     return (
         <div className={styles.container}>
-            <h1 className={styles.heading}>NCU <span>Credit</span> Application</h1>
+            <h1 className={styles.heading}>NCU <span>Online</span> Forum</h1>
 
 
             <div className={styles.featureContainer}>

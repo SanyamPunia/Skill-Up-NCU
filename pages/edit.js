@@ -12,6 +12,16 @@ import loading2 from "react-useanimations/lib/loading2"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from 'next/router'
+import { kebabCase } from "lodash"
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import dynamic from "next/dynamic";
+import ReactMarkdown from 'react-markdown'
+
+const MDEditor = dynamic(
+    () => import("@uiw/react-md-editor").then((mod) => mod.default),
+    { ssr: false }
+);
 
 function Edit() {
     const router = useRouter()
@@ -21,6 +31,7 @@ function Edit() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(null);
     const [listValue, setListValue] = useState(null);
+    const [value, setValue] = useState("**Hello world!!!**");
 
     // form value ref, later using them to upload on firestore using { ref.current.value }
     const filePickerRef = useRef(null);
@@ -42,13 +53,14 @@ function Edit() {
 
         setLoading(true);
 
-        if (titleRef.current.value && subjectRef.current.value && currentYearRef.current.value && descriptionRef.current.value) {
+        if (titleRef.current.value && subjectRef.current.value && currentYearRef.current.value && value) {
             const docRef = await addDoc(collection(db, "posts"), {
                 username: session.user.username,
                 title: titleRef.current.value,
                 subject: subjectRef.current.value,
                 currentYear: currentYearRef.current.value,
-                description: descriptionRef.current.value,
+                // description: descriptionRef.current.value,
+                markdownDescription: value,
                 profileImg: session.user.image,
                 timestamp: serverTimestamp(),
             })
@@ -69,13 +81,16 @@ function Edit() {
             // toast message after successfully sending form data to firestore
             toast.success('Question Posted Successfully!');
 
+            // kebabcase route title
+            let routeTitle = kebabCase(titleRef.current.value);
+
             // redirect to custom post page on onClick button (nested slug routes)
-            router.push(`/${session.user.username}/${titleRef.current.value}`)
+            router.push(`/${session.user.username}/${docRef.id}`)
         }
-        
-            // set state to default state
-            setLoading(false);
-            setSelectedFile(null);
+
+        // set state to default state
+        setLoading(false);
+        setSelectedFile(null);
     }
 
     const addImageToPost = (e) => {
@@ -129,13 +144,16 @@ function Edit() {
                     </div>
                     <div className={styles.subSection}>
                         <label htmlFor="description">Description</label>
-                        <textarea required ref={descriptionRef} className="mt-1
+                        {/* <textarea required ref={descriptionRef} className="mt-1
                                         block
                                         w-full
                                         rounded-md
                                       border-gray-300
                                         shadow-sm
-                                      focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="" id="description" cols="30" rows="10" placeholder="Describe your problem" />
+                                      focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="" id="description" cols="30" rows="10" placeholder="Describe your problem" /> */}
+                        <div>
+                            <MDEditor value={value} onChange={setValue} />
+                        </div>
                     </div>
 
                     <div className={styles.subSection}>
@@ -159,7 +177,7 @@ function Edit() {
                         <input type="file" hidden ref={filePickerRef} onChange={addImageToPost} />
                     </div>
 
-                    <button type="button" onClick={uploadPost}>
+                    <button className={styles.formButton} type="button" onClick={uploadPost}>
                         {loading
                             ?
                             <Fragment>
