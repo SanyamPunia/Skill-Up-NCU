@@ -6,7 +6,7 @@ import Posts from "../components/dashboard/Posts"
 import Head from "next/head"
 
 
-function Dashboard() {
+function Dashboard(props) {
   return (
     <>
       <Head>

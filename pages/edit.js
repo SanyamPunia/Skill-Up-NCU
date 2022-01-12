@@ -23,7 +23,7 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
-function Edit() {
+function Edit(props) {
     const router = useRouter()
 
     const { data: session } = useSession();
@@ -199,7 +199,7 @@ function Edit() {
 
 export default Edit
 
-export async function getServerSideProps(context) {
+async function getServerSideProps(context) {
     const session = await getSession(context)
 
     if (!session) {

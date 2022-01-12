@@ -23,7 +23,7 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
-export default function PostPage() {
+export default function PostPage(props) {
     const { data: session } = useSession();
     const [posts, setPosts] = useState([]);
     const [comment, setComment] = useState("**Hello world!!!**");
@@ -156,14 +156,13 @@ export default function PostPage() {
                                     ?
                                     <Fragment>
                                         <FaHeart onClick={likePost} />
-                                        {likes.length > 0 && (
-                                            <span>{likes.length}</span>
-                                        )}
                                     </Fragment>
                                     :
                                     (<FaRegHeart onClick={likePost} />)
                                 }
-
+                                {likes.length > 0 && (
+                                    <span>{likes.length}</span>
+                                )}
                             </div>
                         </div>
                         <div className={styles.postContentSubContainer}>
