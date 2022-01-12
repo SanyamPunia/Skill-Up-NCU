@@ -130,7 +130,7 @@ export default function PostPage() {
             <Toaster />
             <div>
                 <Head>
-                    <title>Skill Up | {`${postAuthor}`}'s Question</title>
+                    <title>Skill Up | {`${postAuthor}`}&apos;s Question</title>
                 </Head>
                 <Header />
                 <Gap />
