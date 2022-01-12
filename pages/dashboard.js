@@ -6,7 +6,7 @@ import Posts from "../components/dashboard/Posts"
 import Head from "next/head"
 
 
-function Dashboard(props) {
+function Dashboard({ userInfo }) {
   return (
     <>
       <Head>
@@ -28,15 +28,17 @@ export async function getServerSideProps(context) {
   const session = await getSession(context)
 
   if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
+      return {
+          redirect: {
+              destination: '/',
+              permanent: false,
+          },
+      }
   }
 
   return {
-    props: { session }
+      props: { 
+          userInfo: session.user
+       }
   }
 }

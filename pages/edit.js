@@ -23,10 +23,12 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
-function Edit(props) {
+function Edit({ userInfo }) {
     const router = useRouter()
 
     const { data: session } = useSession();
+
+    console.log(userInfo)
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(null);
@@ -55,13 +57,13 @@ function Edit(props) {
 
         if (titleRef.current.value && subjectRef.current.value && currentYearRef.current.value && value) {
             const docRef = await addDoc(collection(db, "posts"), {
-                username: session.user.username,
+                username: userInfo.username,
                 title: titleRef.current.value,
                 subject: subjectRef.current.value,
                 currentYear: currentYearRef.current.value,
                 // description: descriptionRef.current.value,
                 markdownDescription: value,
-                profileImg: session.user.image,
+                profileImg: userInfo.image,
                 timestamp: serverTimestamp(),
             })
 
@@ -85,7 +87,7 @@ function Edit(props) {
             let routeTitle = kebabCase(titleRef.current.value);
 
             // redirect to custom post page on onClick button (nested slug routes)
-            router.push(`/${session.user.username}/${docRef.id}`)
+            router.push(`/${userInfo.username}/${docRef.id}`)
         }
 
         // set state to default state
@@ -199,7 +201,7 @@ function Edit(props) {
 
 export default Edit
 
-async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
     const session = await getSession(context)
 
     if (!session) {
@@ -212,6 +214,8 @@ async function getServerSideProps(context) {
     }
 
     return {
-        props: { session }
+        props: { 
+            userInfo: session.user
+         }
     }
 }

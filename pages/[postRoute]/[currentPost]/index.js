@@ -23,7 +23,7 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
-export default function PostPage(props) {
+export default function PostPage({ userInfo }) {
     const { data: session } = useSession();
     const [posts, setPosts] = useState([]);
     const [comment, setComment] = useState("**Hello world!!!**");
@@ -65,15 +65,15 @@ export default function PostPage(props) {
         [db, postID])
 
     useEffect(() =>
-        setHasLiked(likes.findIndex((like) => like.id === session?.user?.uid) !== -1
+        setHasLiked(likes.findIndex((like) => like.id === userInfo?.uid) !== -1
         ), [likes])
 
     const likePost = async () => {
         if (hasLiked) {
-            await deleteDoc(doc(db, "posts", postID, "likes", session.user.uid))
+            await deleteDoc(doc(db, "posts", postID, "likes", userInfo.uid))
         } else {
-            await setDoc(doc(db, "posts", postID, "likes", session.user.uid), {
-                usename: session.user.username,
+            await setDoc(doc(db, "posts", postID, "likes", userInfo.uid), {
+                usename: userInfo.username,
             })
         }
 
@@ -99,8 +99,8 @@ export default function PostPage(props) {
         if (commentToSend) {
             const docRef = await addDoc(collection(db, 'posts', postID, 'comments'), {
                 comment: commentToSend,
-                username: session.user.username,
-                userImage: session.user.image,
+                username: userInfo.username,
+                userImage: userInfo.image,
                 timestamp: serverTimestamp(),
             })
 
@@ -264,6 +264,8 @@ export async function getServerSideProps(context) {
     }
 
     return {
-        props: { session }
+        props: { 
+            userInfo: session.user
+         }
     }
 }
