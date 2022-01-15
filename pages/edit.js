@@ -23,12 +23,12 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
-function Edit({ userInfo }) {
+function Edit() {
     const router = useRouter()
 
     const { data: session } = useSession();
 
-    console.log(userInfo)
+    // console.log(userInfo)
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(null);
@@ -57,13 +57,13 @@ function Edit({ userInfo }) {
 
         if (titleRef.current.value && subjectRef.current.value && currentYearRef.current.value && value) {
             const docRef = await addDoc(collection(db, "posts"), {
-                username: userInfo.username,
+                username: session.user.username,
                 title: titleRef.current.value,
                 subject: subjectRef.current.value,
                 currentYear: currentYearRef.current.value,
                 // description: descriptionRef.current.value,
                 markdownDescription: value,
-                profileImg: userInfo.image,
+                profileImg: session.user.image,
                 timestamp: serverTimestamp(),
             })
 
@@ -87,7 +87,7 @@ function Edit({ userInfo }) {
             let routeTitle = kebabCase(titleRef.current.value);
 
             // redirect to custom post page on onClick button (nested slug routes)
-            router.push(`/${userInfo.username}/${docRef.id}`)
+            router.push(`/${session.user.username}/${docRef.id}`)
         }
 
         // set state to default state
@@ -108,114 +108,115 @@ function Edit({ userInfo }) {
 
     return (
         <>
-            <Toaster />
-            <Header />
-            <div className={styles.container}>
-                {/* <h1>Ask your question</h1> */}
+            {session ? <Fragment>
+                <Toaster />
+                <Header />
+                <div className={styles.container}>
+                    {/* <h1>Ask your question</h1> */}
 
-                <div className={styles.questionContainer}>
-                    <div className={styles.subSection}>
-                        <label htmlFor="title" >Title</label>
-                        <input ref={titleRef} required className="mt-1
+                    <div className={styles.questionContainer}>
+                        <div className={styles.subSection}>
+                            <label htmlFor="title" >Title</label>
+                            <input ref={titleRef} required className="mt-1
                     block
                     w-full
                     rounded-md
                     border-gray-300
                     shadow-sm
                     focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" id="title" placeholder="Write title" />
-                    </div>
-                    <div className={styles.subSection}>
-                        <label htmlFor="subject">Subject</label>
-                        <input ref={subjectRef} required className="mt-1
+                        </div>
+                        <div className={styles.subSection}>
+                            <label htmlFor="subject">Subject</label>
+                            <input ref={subjectRef} required className="mt-1
                     block
                     w-full
                     rounded-md
                     border-gray-300
                     shadow-sm
                     focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" id="subject" placeholder="Write subject" />
-                    </div>
-                    <div className={styles.subSection}>
-                        <label htmlFor="year">Year</label>
-                        <select required onChange={selectFunction} ref={currentYearRef} className="form-select px-4 py-3 rounded-b-lg border-opacity-25 border-2 border-gray-500" id="year">
-                            <option disabled defaultValue>Choose your current year</option>
-                            <option value="1st Year">1st Year</option>
-                            <option value="2nd Year">2nd Year</option>
-                            <option value="3rd Year">3rd Year</option>
-                            <option value="4th Year">4th Year</option>
-                        </select>
-                    </div>
-                    <div className={styles.subSection}>
-                        <label htmlFor="description">Description</label>
-                        {/* <textarea required ref={descriptionRef} className="mt-1
+                        </div>
+                        <div className={styles.subSection}>
+                            <label htmlFor="year">Year</label>
+                            <select required onChange={selectFunction} ref={currentYearRef} className="form-select px-4 py-3 rounded-b-lg border-opacity-25 border-2 border-gray-500" id="year">
+                                <option disabled defaultValue>Choose your current year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                        <div className={styles.subSection}>
+                            <label htmlFor="description">Description</label>
+                            {/* <textarea required ref={descriptionRef} className="mt-1
                                         block
                                         w-full
                                         rounded-md
                                       border-gray-300
                                         shadow-sm
                                       focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="" id="description" cols="30" rows="10" placeholder="Describe your problem" /> */}
-                        <div>
-                            <MDEditor value={value} onChange={setValue} />
+                            <div>
+                                <MDEditor value={value} onChange={setValue} />
+                            </div>
                         </div>
-                    </div>
 
-                    <div className={styles.subSection}>
-                        <label htmlFor="imageRef">
-                            Attach an image <span>(optional)</span>
-                        </label>
-                        {selectedFile
-                            ?
-                            <img src={selectedFile} onClick={() => setSelectedFile(null)} />
-                            : (
+                        <div className={styles.subSection}>
+                            <label htmlFor="imageRef">
+                                Attach an image <span>(optional)</span>
+                            </label>
+                            {selectedFile
+                                ?
+                                <img src={selectedFile} onClick={() => setSelectedFile(null)} />
+                                : (
+                                    <Fragment>
+                                        <div className={styles.icon}>
+                                            <AiFillPlusCircle onClick={() => {
+                                                filePickerRef.current.click()
+                                            }} />
+                                        </div>
+                                    </Fragment>
+                                )
+
+                            }
+                            <input type="file" hidden ref={filePickerRef} onChange={addImageToPost} />
+                        </div>
+
+                        <button className={styles.formButton} type="button" onClick={uploadPost}>
+                            {loading
+                                ?
                                 <Fragment>
-                                    <div className={styles.icon}>
-                                        <AiFillPlusCircle onClick={() => {
-                                            filePickerRef.current.click()
-                                        }} />
-                                    </div>
+                                    Uploading...
+                                    <div className={styles.animatedIcon}><UseAnimations animation={loading2} fillColor="#8099FC" /></div>
                                 </Fragment>
-                            )
-
-                        }
-                        <input type="file" hidden ref={filePickerRef} onChange={addImageToPost} />
+                                :
+                                <Fragment>
+                                    Upload question
+                                </Fragment>
+                            }
+                        </button>
                     </div>
-
-                    <button className={styles.formButton} type="button" onClick={uploadPost}>
-                        {loading
-                            ?
-                            <Fragment>
-                                Uploading...
-                                <div className={styles.animatedIcon}><UseAnimations animation={loading2} fillColor="#8099FC" /></div>
-                            </Fragment>
-                            :
-                            <Fragment>
-                                Upload question
-                            </Fragment>
-                        }
-                    </button>
                 </div>
-            </div>
+            </Fragment> : <h1>Sign in</h1>}
         </>
-
     )
 }
 
 export default Edit
 
-export async function getServerSideProps(context) {
-    const session = await getSession(context)
+// export async function getServerSideProps(context) {
+//     const session = await getSession(context)
 
-    if (!session) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            },
-        }
-    }
+//     if (!session) {
+//         return {
+//             redirect: {
+//                 destination: '/',
+//                 permanent: false,
+//             },
+//         }
+//     }
 
-    return {
-        props: { 
-            userInfo: session.user
-         }
-    }
-}
+//     return {
+//         props: {
+//             userInfo: session.user
+//          }
+//     }
+// }
