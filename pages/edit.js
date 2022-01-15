@@ -12,10 +12,10 @@ import loading2 from "react-useanimations/lib/loading2"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from 'next/router'
-import "@uiw/react-md-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
-import dynamic from "next/dynamic";
-import ReactMarkdown from 'react-markdown'
+// import "@uiw/react-md-editor/markdown-editor.css";
+// import "@uiw/react-markdown-preview/markdown.css";
+// import dynamic from "next/dynamic";
+// import ReactMarkdown from 'react-markdown'
 
 // const MDEditor = dynamic(
 //     () => import("@uiw/react-md-editor").then((mod) => mod.default),
