@@ -10,25 +10,28 @@ import styles from "../styles/Home.module.scss"
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Skill Up | Credit Based Learning</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.container}>
 
-      <Header />
-      <Gap /> {/* gap component */}
-      <Landing />
-      <Gap />
-      <hr />
-      <Gap />
-      <Features />
-      <Gap />
-      <Contribution />
-      <Gap />
-      <SubFooter />
-      <Gap />
-      <Footer />
-    </div>
+
+        <Header />
+        <Gap /> {/* gap component */}
+        <Landing />
+        <Gap />
+        <hr />
+        <Gap />
+        <Features />
+        <Gap />
+        <Contribution />
+        <Gap />
+        <SubFooter />
+        <Gap />
+        <Footer />
+      </div>
+    </>
   )
 }
