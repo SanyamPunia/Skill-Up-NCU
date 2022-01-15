@@ -12,16 +12,15 @@ import loading2 from "react-useanimations/lib/loading2"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from 'next/router'
-import { kebabCase } from "lodash"
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from "next/dynamic";
 import ReactMarkdown from 'react-markdown'
 
-const MDEditor = dynamic(
-    () => import("@uiw/react-md-editor").then((mod) => mod.default),
-    { ssr: false }
-);
+// const MDEditor = dynamic(
+//     () => import("@uiw/react-md-editor").then((mod) => mod.default),
+//     { ssr: false }
+// );
 
 function Edit() {
     const router = useRouter()
@@ -33,7 +32,7 @@ function Edit() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(null);
     const [listValue, setListValue] = useState(null);
-    const [value, setValue] = useState("**Hello world!!!**");
+    // const [value, setValue] = useState("**Hello world!!!**");
 
     // form value ref, later using them to upload on firestore using { ref.current.value }
     const filePickerRef = useRef(null);
@@ -62,7 +61,7 @@ function Edit() {
                 subject: subjectRef.current.value,
                 currentYear: currentYearRef.current.value,
                 // description: descriptionRef.current.value,
-                markdownDescription: value,
+                // markdownDescription: value,
                 profileImg: session.user.image,
                 timestamp: serverTimestamp(),
             })
@@ -82,9 +81,6 @@ function Edit() {
 
             // toast message after successfully sending form data to firestore
             toast.success('Question Posted Successfully!');
-
-            // kebabcase route title
-            let routeTitle = kebabCase(titleRef.current.value);
 
             // redirect to custom post page on onClick button (nested slug routes)
             router.push(`/${session.user.username}/${docRef.id}`)
@@ -154,9 +150,9 @@ function Edit() {
                                       border-gray-300
                                         shadow-sm
                                       focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="" id="description" cols="30" rows="10" placeholder="Describe your problem" /> */}
-                            <div>
+                            {/* <div>
                                 <MDEditor value={value} onChange={setValue} />
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className={styles.subSection}>
