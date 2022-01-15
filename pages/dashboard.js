@@ -1,5 +1,4 @@
 import { useSession, getSession } from "next-auth/react"
-import Modal from "../components/dashboard/Modal"
 import Landing from "../components/dashboard/Landing"
 import Header from "../components/Header"
 import Posts from "../components/dashboard/Posts"
@@ -21,7 +20,6 @@ function Dashboard() {
       {session ?
         <Fragment>
           <Landing />
-          <Modal />
           <Posts />
         </Fragment>
         :
