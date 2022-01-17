@@ -2,7 +2,7 @@ import styles from "../styles/Header.module.scss"
 import Link from "next/link"
 import { useSession, signIn, signOut } from "next-auth/react"
 import React from "react";
-import { Fragment } from "react/cjs/react.production.min";
+import { Fragment } from "react";
 
 function Header() {
     const { data: session } = useSession();
