@@ -1,7 +1,7 @@
 import styles from "../styles/dashboard/Edit.module.scss"
 import Header from "../components/Header"
 import { useSession, getSession } from "next-auth/react"
-import { Fragment } from "react/cjs/react.development"
+import { Fragment } from "react"
 import { useState, useRef } from "react"
 import { FaCamera } from "react-icons/fa"
 import { AiFillPlusCircle } from "react-icons/ai"

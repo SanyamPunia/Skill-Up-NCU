@@ -13,7 +13,7 @@ import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from "next/dynamic";
 import { AiFillPlusCircle } from "react-icons/ai"
 import { FaRegHeart, FaHeart } from "react-icons/fa"
-import { Fragment } from "react/cjs/react.development";
+import { Fragment } from "react";
 import toast, { Toaster } from "react-hot-toast"
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
