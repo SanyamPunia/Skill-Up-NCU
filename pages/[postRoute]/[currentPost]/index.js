@@ -129,11 +129,11 @@ export default function PostPage() {
         <>
             {session ?
                 <Fragment>
+                    <Head>
+                        <title>Skill Up | {postAuthor}&apos;s Question</title>
+                    </Head>
                     <Toaster />
                     <div>
-                        <Head>
-                            <title>Skill Up | {postAuthor}&apos;s Question</title>
-                        </Head>
                         <Header />
                         <Gap />
                         <div className={styles.container}>

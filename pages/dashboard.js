@@ -5,7 +5,6 @@ import Posts from "../components/dashboard/Posts"
 import Head from "next/head"
 import { Fragment } from "react"
 
-
 function Dashboard() {
 
   const { data: session } = useSession();

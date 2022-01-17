@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Fragment } from "react"
 import ReactMarkdown from 'react-markdown'
 
-function Post({ id, username, title, subject, currentYear, description, userImg, img, createdAtTime, createdAtDate, markdownDescription }) {
+function Post({ id, username, title, subject, currentYear, userImg, img, createdAtTime, createdAtDate, markdownDescription }) {
     const router = useRouter()
 
     console.log(markdownDescription);

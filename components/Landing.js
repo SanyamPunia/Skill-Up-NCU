@@ -1,7 +1,7 @@
 import styles from "../styles/Landing.module.scss"
 import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
-import { Fragment } from "react/cjs/react.development"
+import { Fragment } from "react"
 import Link from "next/link"
 
 function Landing() {
