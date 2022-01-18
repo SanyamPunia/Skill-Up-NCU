@@ -14,36 +14,31 @@ function Dashboard() {
         <title>Skill Up | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
 
-      {session ?
-        <Fragment>
-          <Landing />
-          <Posts />
-        </Fragment>
-        :
-        <h1>Sign In</h1>}
+      <Header />
+      <Landing />
+      <Posts />
     </>
   )
 }
 
 export default Dashboard
 
-// export async function getServerSideProps(context) {
-//   const session = await getSession(context)
+export async function getServerSideProps(context) {
+  const session = await getSession(context)
 
-//   if (!session) {
-//       return {
-//           redirect: {
-//               destination: '/',
-//               permanent: false,
-//           },
-//       }
-//   }
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
 
-//   return {
-//       props: {
-//           userInfo: session.user
-//        }
-//   }
-// }
+  return {
+    props: {
+      userInfo: session.user
+    }
+  }
+}

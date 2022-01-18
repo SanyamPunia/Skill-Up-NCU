@@ -256,21 +256,21 @@ export default function PostPage() {
     )
 }
 
-// export async function getServerSideProps(context) {
-//     const session = await getSession(context)
+export async function getServerSideProps(context) {
+    const session = await getSession(context)
 
-//     if (!session) {
-//         return {
-//             redirect: {
-//                 destination: '/',
-//                 permanent: false,
-//             },
-//         }
-//     }
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
 
-//     return {
-//         props: {
-//             userInfo: session.user
-//          }
-//     }
-// }
+    return {
+        props: {
+            userInfo: session.user
+         }
+    }
+}

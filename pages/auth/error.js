@@ -1,5 +1,3 @@
-
-
 function error() {
     return (
         <div>
