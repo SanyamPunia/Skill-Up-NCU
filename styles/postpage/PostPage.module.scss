@@ -242,3 +242,25 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+    
+    .imageAttachment {
+      img {
+        width: 500px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .imageAttachment {
+      img {
+        width: 300px;
+      }
+    }
+  }
+}

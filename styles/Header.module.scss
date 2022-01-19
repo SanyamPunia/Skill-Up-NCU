@@ -19,23 +19,31 @@
 
   .linkContainer {
     display: flex;
-    gap: 4em;
     align-items: center;
 
-    img {
-      width: 40px;
-      border-radius: 50%;
+    .dropDown {
+      display: none;
     }
 
-    a {
-      font-size: 1.1em;
-      font-family: "Spartan", sans-serif;
-      font-weight: 500;
-      transition: 0.2s all ease;
-      cursor: pointer;
+    .navLink {
+      display: flex;
+      align-items: center;
+      gap: 4em;
+      img {
+        width: 40px;
+        border-radius: 50%;
+      }
 
-      &:hover {
-        color: var(--primaryBlue);
+      a {
+        font-size: 1.1em;
+        font-family: "Spartan", sans-serif;
+        font-weight: 500;
+        transition: 0.2s all ease;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--primaryBlue);
+        }
       }
     }
   }
@@ -49,9 +57,73 @@
 
 @media screen and (max-width: 900px) {
   .container {
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 4em;
-    align-items: baseline;
+
+    .linkContainer {
+      .navLink {
+        a,
+        img {
+          display: none;
+        }
+      }
+      .dropDown {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+
+        .dropBtn {
+          background-color: transparent;
+          color: var(--primaryBlack);
+          font-size: 2em;
+          border: none;
+          cursor: pointer;
+          transition: 0.3s all ease;
+
+          &:hover {
+            color: rgb(39, 108, 211);
+          }
+        }
+
+        .dropDownContent {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+          width: 7em;
+          padding: 1.2em 0;
+
+          a {
+            margin: 1em;
+            font-family: "Spartan", sans-serif;
+            color: #1a1a1a;
+            text-decoration: none;
+            display: block;
+            transition: 0.1s all ease;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f1f1f1;
+            }
+          }
+
+          img {
+            border-radius: 50%;
+            width: 40px;
+            text-align: center;
+          }
+        }
+
+        &:hover {
+          .dropDownContent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      }
+    }
   }
 }
 

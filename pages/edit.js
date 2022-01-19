@@ -32,7 +32,7 @@ function Edit() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(null);
     const [listValue, setListValue] = useState(null);
-    const [value, setValue] = useState("**Hello world!!!**");
+    const [value, setValue] = useState("");
 
     // form value ref, later using them to upload on firestore using { ref.current.value }
     const filePickerRef = useRef(null);
@@ -46,7 +46,7 @@ function Edit() {
     }
 
     const selectFunctionSet = () => {
-        console.log(listValue);
+        // console.log(listValue);
     }
 
     const uploadPost = async (e) => {
@@ -66,7 +66,7 @@ function Edit() {
                 timestamp: serverTimestamp(),
             })
 
-            console.log("New doc added with ID: ", docRef.id);
+            // console.log("New doc added with ID: ", docRef.id);
 
             if (selectedFile) {
                 const imageRef = ref(storage, `posts/${docRef.id}/image`);
@@ -150,7 +150,9 @@ function Edit() {
                                         shadow-sm
                                       focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="" id="description" cols="30" rows="10" placeholder="Describe your problem" /> */}
                         <div>
-                            <MDEditor value={value} onChange={setValue} />
+                            <MDEditor value={value} onChange={setValue} textareaProps={{
+                                placeholder: 'Write description...'
+                            }} />
                         </div>
                     </div>
 

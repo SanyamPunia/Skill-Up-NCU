@@ -12,7 +12,7 @@ import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from "next/dynamic";
 import { AiFillPlusCircle } from "react-icons/ai"
-import { FaRegHeart, FaHeart } from "react-icons/fa"
+import { FaRegHeart, FaHeart, FaThumbsUp, FaRegThumbsUp } from "react-icons/fa"
 import { Fragment } from "react";
 import toast, { Toaster } from "react-hot-toast"
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
@@ -26,7 +26,7 @@ const MDEditor = dynamic(
 export default function PostPage() {
     const { data: session } = useSession();
     const [posts, setPosts] = useState([]);
-    const [comment, setComment] = useState("**Hello world!!!**");
+    const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
     const [displayForm, setDisplayForm] = useState(false);
@@ -56,7 +56,7 @@ export default function PostPage() {
         )
     }, [db, postID])
 
-    console.log(posts);
+    // console.log(posts);
 
     useEffect(() =>
         onSnapshot(collection(db, "posts", postID, "likes"), (snapshot) =>
@@ -104,7 +104,7 @@ export default function PostPage() {
                 timestamp: serverTimestamp(),
             })
 
-            console.log("New comment added with ID: ", postID);
+            // console.log("New comment added with ID: ", postID);
 
             if (selectedFile) {
                 const imageRef = ref(storage, `posts/${postID}/comments`);
@@ -157,10 +157,10 @@ export default function PostPage() {
                                         {hasLiked
                                             ?
                                             <Fragment>
-                                                <FaHeart onClick={likePost} />
+                                                <FaThumbsUp onClick={likePost} />
                                             </Fragment>
                                             :
-                                            (<FaRegHeart onClick={likePost} />)
+                                            (<FaRegThumbsUp onClick={likePost} />)
                                         }
                                         {likes.length > 0 && (
                                             <span>{likes.length}</span>
@@ -188,7 +188,9 @@ export default function PostPage() {
                                         <Fragment>
                                             {/* <button className={styles.formButton} onClick={displayFormVisibility}>Add answer</button> */}
                                             <form>
-                                                <div className={styles.editorContainer}><MDEditor value={comment} onChange={setComment} /></div>
+                                                <div className={styles.editorContainer}><MDEditor value={comment} onChange={setComment} textareaProps={{
+                                                    placeholder: 'Write comment...'
+                                                }} /></div>
                                                 <div className={styles.subSection}>
                                                     <label htmlFor="imageRef">
                                                         Attach an image <span>(optional)</span>
@@ -217,7 +219,7 @@ export default function PostPage() {
                                     }
                                 </div>
 
-                                {console.log(comments.length)}
+                                {/* {console.log(comments.length)} */}
                                 {comments.length > 0 && (
                                     <div className={styles.commentContainer}>
                                         {comments.map((comment) => (
@@ -271,6 +273,6 @@ export async function getServerSideProps(context) {
     return {
         props: {
             userInfo: session.user
-         }
+        }
     }
 }
