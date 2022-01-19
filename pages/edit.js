@@ -61,7 +61,7 @@ function Edit() {
                 subject: subjectRef.current.value,
                 currentYear: currentYearRef.current.value,
                 // description: descriptionRef.current.value,
-                // markdownDescription: value,
+                markdownDescription: value,
                 profileImg: session.user.image,
                 timestamp: serverTimestamp(),
             })
