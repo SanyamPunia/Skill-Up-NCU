@@ -33,8 +33,7 @@ function Landing() {
                         </Fragment>
                         : <Fragment>
                             <a onClick={signIn}>
-                                <img src="/google-logo.png" alt="" />
-                                Sign In With Google
+                                Get Started
                             </a>
                         </Fragment>
                     }

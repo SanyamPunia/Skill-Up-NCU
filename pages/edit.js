@@ -170,6 +170,7 @@ function Edit() {
                                             filePickerRef.current.click()
                                         }} />
                                     </div>
+                                    <ReactMarkdown>{session.user.username}</ReactMarkdown>
                                 </Fragment>
                             )
 
@@ -212,7 +213,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            userInfo: session.user
+            userInfo: session.user,
         }
     }
 }

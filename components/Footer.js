@@ -1,6 +1,7 @@
 import Link from "next/link"
 import styles from "../styles/Footer.module.scss"
 import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"
+import { signIn } from "next-auth/react"
 
 function Footer() {
     return (
@@ -18,6 +19,7 @@ function Footer() {
                 </div>
 
                 <div className={styles.rightSubContainer}>
+                    <Link href="/"><a onClick={signIn}>Join Us</a></Link>
                     <Link href="/"><a>About</a></Link>
                     <Link href="/"><a>GitHub</a></Link>
                     <Link href="/"><a>Legal</a></Link>

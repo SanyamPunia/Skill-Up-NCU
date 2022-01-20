@@ -1,19 +1,172 @@
 .container {
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-content: center;
+  // height: 100vh;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
+  margin: 5em auto;
 
-  button {
+  h1 {
+    font-size: 3.5em;
     font-family: "Poppins";
-    border-radius: 10px;
-    padding: 1em;
-    background-color: var(--primaryBlue);
-    color: #fff;
-    transition: 0.2s all ease;
+    font-weight: 700;
+    color: var(--primaryBlue);
 
-    &:hover {
-      background-color: var(--primaryRed);
+    span {
+      text-decoration: underline;
     }
+  }
+
+  .subContainer {
+    display: flex;
+    align-items: center;
+    gap: 10em;
+
+    .imageContainer {
+      img {
+        width: 30em;
+      }
+    }
+
+    .contentContainer {
+      .content {
+        h2 {
+          font-size: 2em;
+          font-weight: 700;
+          color: var(--primaryBlack);
+
+          span {
+            color: var(--primaryRed);
+          }
+        }
+
+        h2:nth-child(2) {
+          margin-bottom: 0.9em;
+        }
+
+        ul {
+          * {
+            font-family: "Poppins";
+            color: var(--primaryBlack);
+            list-style: none;
+            line-height: 1.5em;
+          }
+          li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2em;
+
+            span {
+              * {
+                color: var(--primaryBlue);
+                margin-top: 0.2em;
+              }
+            }
+          }
+        }
+      }
+      .buttonContainer {
+        margin-top: 1.8em;
+        display: grid;
+        justify-content: left;
+
+        a {
+          cursor: pointer;
+          padding: 0.9em;
+          background-color: white;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          gap: 1em;
+          font-family: "Poppins";
+          color: var(--primaryBlack);
+          font-size: 1.1em;
+          transition: 0.2s all ease;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+          img {
+            width: 30px;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: rgba(100, 100, 100, 0.3) 0px 4px 32px;
+            color: var(--primaryBlue);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+
+    h1 {
+      font-size: 3em;
+    }
+
+    .subContainer {
+      gap: 8em;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 60%;
+    gap: 3em;
+    h1 {
+      font-size: 2.8em;
+    }
+
+    .subContainer {
+      display: grid;
+
+      .imageContainer {
+        display: none;
+      }
+
+      .contentContainer {
+        .content {
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 55%;
+
+    h1 {
+      font-size: 2.3em;
+    }
+
+    .subContainer {
+      .contentContainer {
+        .content {
+          h2 {
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 70%;
   }
 }
