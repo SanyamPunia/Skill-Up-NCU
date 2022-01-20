@@ -8,7 +8,7 @@ function Contribution() {
             <p>elit, sed do eiusmod tempor incididunt ut labore et  non proident, sunt</p>
             <p>mollit anim id est laborum.</p>
             <div className={styles.buttonContainer}>
-                <a>
+                <a href="https://bitbucket.org/sanyam_mxle/skillup-ncu">
                     <img src="/bitbucket.png" alt="" />
                     Contribute
                 </a>

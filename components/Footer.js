@@ -21,8 +21,7 @@ function Footer() {
                 <div className={styles.rightSubContainer}>
                     <Link href="/"><a onClick={signIn}>Join Us</a></Link>
                     <Link href="/"><a>About</a></Link>
-                    <Link href="/"><a>GitHub</a></Link>
-                    <Link href="/"><a>Legal</a></Link>
+                    <Link href="https://bitbucket.org/sanyam_mxle/skillup-ncu"><a>Bitbucket</a></Link>
                 </div>
             </div>
         </div>
