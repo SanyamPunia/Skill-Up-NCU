@@ -2,6 +2,7 @@ import { getProviders, signIn as SignIntoProvider } from "next-auth/react"
 import Header from "../../components/Header";
 import styles from "../../styles/SignIn.module.scss"
 import { FaAngleRight } from "react-icons/fa"
+import Footer from "../../components/Footer";
 
 function signIn({ providers }) {
     return (
@@ -54,6 +55,7 @@ function signIn({ providers }) {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
