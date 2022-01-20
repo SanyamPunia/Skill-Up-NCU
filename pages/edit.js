@@ -170,7 +170,6 @@ function Edit() {
                                             filePickerRef.current.click()
                                         }} />
                                     </div>
-                                    <ReactMarkdown>{session.user.username}</ReactMarkdown>
                                 </Fragment>
                             )
 
