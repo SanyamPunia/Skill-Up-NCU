@@ -6,7 +6,7 @@ import { FaAngleRight } from "react-icons/fa"
 import Footer from "../../components/Footer";
 import { useState } from "react";
 
-function signIn({ providers }) {
+function SignIn({ providers }) {
     const [checkbox, setCheckbox] = useState(false);
 
     function handleCheckboxChange(e) {
@@ -91,4 +91,4 @@ export async function getServerSideProps() {
     }
 }
 
-export default signIn
+export default SignIn
