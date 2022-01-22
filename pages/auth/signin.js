@@ -24,22 +24,21 @@ function signIn({ providers }) {
                                     <span>
                                         <FaAngleRight />
                                     </span>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                    sed do. Duis aute irure dolor in reprehenderit in.
+                                    Your credential data and post information will be recorded for mmoderation and safety purposes.
+                                    We have legal rights to take certain actions if you violate this condition.
                                 </li>
                                 <li>
                                     <span>
                                         <FaAngleRight />
                                     </span>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                    sed do. Duis aute irure dolor in reprehenderit in.
+                                    Any kind of misuse and actions conducted against these terms can lead to permanent ban from using
+                                    this platform.
                                 </li>
                                 <li>
                                     <span>
                                         <FaAngleRight />
                                     </span>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                    sed do. Duis aute irure dolor in reprehenderit in.
+                                    You agree to not use any web scrapping tools which may be used to mine Skill Up NCU services and features.
                                 </li>
                             </ul>
                         </div>

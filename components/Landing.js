@@ -17,13 +17,13 @@ function Landing() {
                 </div>
                 <div className={styles.context}>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        <span>Skill Up NCU</span> is an <span>online platform</span> built for <span>student community</span> to interact
                     </p>
                     <p>
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim adm
+                        with each other by solving their doubts and help each learn and
                     </p>
                     <p>
-                        minim veniam elit sed do ad.
+                        <span>grow together.</span>
                     </p>
                 </div>
                 <div className={styles.buttonContainer}>

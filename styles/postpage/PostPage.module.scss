@@ -46,7 +46,7 @@
 
     .postMediaContainer {
       img {
-        max-width: 30em;
+        width: fit-content;
         border-radius: 10px;
       }
 
@@ -236,9 +236,10 @@
 @media screen and (max-width: 900px) {
   .container {
     width: 80%;
-    
+
     .postContentContainer {
       display: grid;
+      gap: 1.2em;
     }
   }
 }
@@ -246,7 +247,7 @@
 @media screen and (max-width: 700px) {
   .container {
     width: 90%;
-    
+
     .imageAttachment {
       img {
         width: 500px;
@@ -257,9 +258,35 @@
 
 @media screen and (max-width: 600px) {
   .container {
+    .postContentContainer {
+      .postMediaContainer {
+        img {
+          max-width: 400px;
+        }
+      }
+    }
+
     .imageAttachment {
       img {
-        width: 300px;
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    .postContentContainer {
+      .postMediaContainer {
+        img {
+          max-width: 350px;
+        }
+      }
+    }
+
+    .imageAttachment {
+      img {
+        max-width: 300px;
       }
     }
   }

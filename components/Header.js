@@ -30,14 +30,14 @@ function Header() {
                             ?
                             <Fragment>
                                 <div className={styles.navLink}>
-                                    <Link href="/"><a>About</a></Link>
+                                    <Link href="/about"><a>About</a></Link>
                                     <a onClick={signOut}>Sign Out</a>
                                     <img src={session?.user?.image} alt="" />
                                 </div>
                                 <div className={styles.dropDown}>
                                     <div className={styles.dropBtn}><GiHamburgerMenu /></div>
                                     <div className={styles.dropDownContent}>
-                                        <Link href="/"><a>About</a></Link>
+                                        <Link href="/about"><a>About</a></Link>
                                         <a onClick={signOut}>Sign Out</a>
                                         <img src={session?.user?.image} alt="" />
                                     </div>
@@ -46,14 +46,14 @@ function Header() {
                             :
                             <Fragment>
                                 <div className={styles.navLink}>
-                                    <Link href="/"><a>About</a></Link>
+                                    <Link href="/about"><a>About</a></Link>
                                     <a onClick={signIn}>Sign In</a>
                                 </div>
                                 <div className={styles.dropDown}>
                                     <div className={styles.dropBtn}><GiHamburgerMenu /></div>
                                     <div className={styles.dropDownContent}>
                                         <a onClick={signIn}>Sign In</a>
-                                        <Link href="/"><a>About</a></Link>
+                                        <Link href="/about"><a>About</a></Link>
                                     </div>
                                 </div>
                             </Fragment>

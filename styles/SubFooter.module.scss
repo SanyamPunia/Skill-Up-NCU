@@ -21,11 +21,21 @@
     p {
       font-family: "Poppins", sans-serif;
       color: var(--primaryBlack);
+
+      span {
+        font-weight: 500;
+      }
     }
   }
 
   .action {
       width: 100%;
+
+      h1 {
+        font-size: 1.2em;
+        font-family: "Poppins";
+        font-weight: 500;
+      }
 
       form {
           label {

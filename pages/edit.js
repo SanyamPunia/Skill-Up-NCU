@@ -192,6 +192,7 @@ function Edit() {
                     </button>
                 </div>
             </div>
+            {console.log(process.env.GOOGLE_CLIENT_ID)}
         </>
     )
 }

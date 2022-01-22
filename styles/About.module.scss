@@ -1,0 +1,63 @@
+.container {
+  width: 50%;
+  margin: 7em auto;
+  h1 {
+    font-family: "Spartan";
+  }
+  .topContainer {
+    h1 {
+      font-size: 3.5em;
+      font-weight: 800;
+      color: var(--primaryBlue);
+
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .midContainer {
+    margin: 1.2em 0;
+    h1 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primaryBlack);
+    }
+  }
+
+  .botContainer {
+    p {
+      font-size: 1em;
+      font-family: "Poppins";
+      color: rgb(117, 117, 117);
+      margin-bottom: 2.3em;
+    }
+
+    .botContainerSubSection {
+      h1 {
+          margin-bottom: 1.2em;
+        font-size: 1.2em;
+        font-weight: 700;
+        color: var(--primaryBlack);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+}

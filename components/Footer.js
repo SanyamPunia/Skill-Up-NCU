@@ -9,8 +9,8 @@ function Footer() {
             <div className={styles.container}>
                 <div className={styles.leftSubContainer}>
                     <Link href="/"><a>Skill Up</a></Link>
-                    <p>Lorem ipsum dolor sit amet,</p>
-                    <p>consectetur adipiscing elit</p>
+                    <p>Learn It Better,</p>
+                    <p>From Your Peers</p>
                     <div className={styles.icons}>
                         <Link href="/"><a><FaInstagram size={25} /></a></Link>
                         <Link href="/"><a><FaTwitter size={25} /></a></Link>
@@ -20,7 +20,7 @@ function Footer() {
 
                 <div className={styles.rightSubContainer}>
                     <Link href="/"><a onClick={signIn}>Join Us</a></Link>
-                    <Link href="/"><a>About</a></Link>
+                    <Link href="/about"><a>About</a></Link>
                     <Link href="https://bitbucket.org/sanyam_mxle/skillup-ncu"><a>Bitbucket</a></Link>
                 </div>
             </div>

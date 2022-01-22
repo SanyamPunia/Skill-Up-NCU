@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 function Post({ id, username, title, subject, currentYear, userImg, img, createdAtTime, createdAtDate, markdownDescription }) {
     const router = useRouter()
 
-    console.log(markdownDescription);
+    // console.log(markdownDescription);
 
     function redirectToPostPage() {
         router.push(`/${username}/${id}`);
@@ -36,7 +36,6 @@ function Post({ id, username, title, subject, currentYear, userImg, img, created
                             <h1>{title}</h1>
                             <p>{subject}</p>
                             <hr />
-                            {/* <p>{description}</p> */}
                             <div className={styles.markDownContainer}>
                                 <ReactMarkdown>{markdownDescription}</ReactMarkdown>
                             </div>
@@ -48,7 +47,6 @@ function Post({ id, username, title, subject, currentYear, userImg, img, created
                             <h1>{title}</h1>
                             <p>{subject}</p>
                             <hr />
-                            {/* <p>{description}</p> */}
                             <div className={styles.markDownContainer}>
                                 <ReactMarkdown>{markdownDescription}</ReactMarkdown>
                             </div>

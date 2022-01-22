@@ -4,6 +4,7 @@ import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, u
 import { useState, useEffect, useRef } from "react"
 import Header from "../../../components/Header"
 import Head from "next/head";
+import Link from "next/link"
 import { useRouter } from "next/router";
 import Gap from "../../../components/Gap"
 import styles from "../../../styles/postpage/PostPage.module.scss"
