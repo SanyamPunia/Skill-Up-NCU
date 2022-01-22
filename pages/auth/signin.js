@@ -1,14 +1,24 @@
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react"
 import Header from "../../components/Header";
 import styles from "../../styles/SignIn.module.scss"
+import Head from "next/head"
 import { FaAngleRight } from "react-icons/fa"
 import Footer from "../../components/Footer";
+import { useState } from "react";
 
 function signIn({ providers }) {
+    const [checkbox, setCheckbox] = useState(false);
+
+    function handleCheckboxChange(e) {
+        setCheckbox(!checkbox);
+    }
+
     return (
         <>
+            <Head>
+                <title>Sign In</title>
+            </Head>
             <Header />
-
             <div className={styles.container}>
                 <h1>Join The <span>Community</span>.</h1>
                 <div className={styles.subContainer}>
@@ -42,15 +52,27 @@ function signIn({ providers }) {
                                 </li>
                             </ul>
                         </div>
-                        {Object.values(providers).map((provider) => (
-                            <div key={provider.name} className={styles.buttonContainer}>
-                                <a onClick={() => SignIntoProvider(provider.id, { callbackUrl: "/dashboard" })}>
-                                    <img src="/google-logo.png" alt="" />
-                                    Sign in with {provider.name}
-                                </a>
-
+                        <form>
+                            <div className="flex items-start mb-6">
+                                <div className="flex items-center h-6">
+                                    <input id="remember" aria-describedby="remember" autoComplete="off" checked={checkbox} onChange={handleCheckboxChange} type="checkbox" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+                                </div>
+                                <div className="ml-3 text-md">
+                                    <label htmlFor="remember" className="font-semibold text-gray-900 dark:text-gray-300">By checking, you agree to these terms & condition</label>
+                                </div>
                             </div>
-                        ))}
+                            {Object.values(providers).map((provider) => (
+                                <div key={provider.name} className={styles.buttonContainer}>
+                                    {checkbox ? <a onClick={() => SignIntoProvider(provider.id, { callbackUrl: "/dashboard" })}>
+                                        <img src="/google-logo.png" alt="" />
+                                        Sign in with {provider.name}
+                                    </a> : <a onClick={() => alert("Please agree to the terms & condition")}>
+                                        <img src="/google-logo.png" alt="" />
+                                        Sign in with {provider.name}
+                                    </a>}
+                                </div>
+                            ))}
+                        </form>
                     </div>
                 </div>
             </div>

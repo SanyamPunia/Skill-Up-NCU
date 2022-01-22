@@ -261,32 +261,16 @@
     .postContentContainer {
       .postMediaContainer {
         img {
-          max-width: 400px;
+          width: 100%;
+          max-width: 500px;
         }
       }
     }
 
     .imageAttachment {
       img {
-        max-width: 300px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .container {
-    .postContentContainer {
-      .postMediaContainer {
-        img {
-          max-width: 350px;
-        }
-      }
-    }
-
-    .imageAttachment {
-      img {
-        max-width: 300px;
+        width: 100%;
+        max-width: 500px;
       }
     }
   }

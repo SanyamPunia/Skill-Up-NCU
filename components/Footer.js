@@ -2,8 +2,12 @@ import Link from "next/link"
 import styles from "../styles/Footer.module.scss"
 import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"
 import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 function Footer() {
+
+    const { data: session } = useSession();
+
     return (
         <div className={styles.topContainer}>
             <div className={styles.container}>
@@ -19,7 +23,10 @@ function Footer() {
                 </div>
 
                 <div className={styles.rightSubContainer}>
-                    <Link href="/"><a onClick={signIn}>Join Us</a></Link>
+                    {session ? <Link href="/dashboard"><a>Join Us</a></Link> 
+                    :
+                        <Link href="/"><a onClick={signIn}>Join Us</a></Link>
+                    }
                     <Link href="/about"><a>About</a></Link>
                     <Link href="https://bitbucket.org/sanyam_mxle/skillup-ncu"><a>Bitbucket</a></Link>
                 </div>
