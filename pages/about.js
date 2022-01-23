@@ -11,57 +11,43 @@ function about() {
                     <h1><span>About</span> Us</h1>
                 </div>
                 <div className={styles.midContainer}>
-                    <h1>Lorem ipsum dolor sit amet, consectetur</h1>
+                    <h1>Imagine being part of a community that will benefit both the questioner
+                        and the answerer. Skill Up NCU will fulfill your requirements and needs without
+                        any hesitation.</h1>
                 </div>
                 <div className={styles.botContainer}>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        Peer learning can lead to improved attitudes and a more personalized,
+                        engaging, and collaborative learning experience, all of which can lead
+                        to higher achievement. This website provides you with the opportunity to
+                        not only learn from peers but also help them to learn. It also provides
+                        great features to enhance the experience of the user.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        One of the best features provided by Skill Up NCU is its credit point system
+                        that highly inspires students to come out and help each other. To avail the credit
+                        point system, the user should be an active participant for at least 2-3 months.
+                        The credit is given by considering various factors such as the correctness of the
+                        answer, the difficulty level of questions, etc.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        Higher the credits, the higher is the chance to top the leaderboard rankings and higher
+                        the chance to get good academic results. The credit points can be used in General Proficiency
+                        Evaluation. This platform allows the students to interact with each other for clearing
+                        doubts and learning new things.
                     </p>
 
                     <div className={styles.botContainerSubSection}>
-                        <h1>Lorem ipsum dolor sit amet, consectetur</h1>
-
+                        <h1>About our guidelines & policies</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
+                            The website follows guidelines and will not tolerate any kind of ill doings. Strict
+                            actions will be taken as per the terms and conditions. The main motive of Skill Up NCU
+                            was to make a collective and shared platform for the students to grow together.
                         </p>
                     </div>
                 </div>
             </div>
-        <Footer />
+            <Footer />
 
         </>);
 }
